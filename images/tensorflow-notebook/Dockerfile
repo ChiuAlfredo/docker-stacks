@@ -11,7 +11,14 @@ LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 # Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install Tensorflow with pip
-RUN pip install --no-cache-dir tensorflow && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+ #Install Tensorflow
+ RUN pip install — quiet — no-cache-dir \
+  'tensorflow-gpu' \
+  'pytorch' \
+  'torchvision' \
+  'torchaudio' \
+  'cudatoolkit=11.3' \
+  -c pytorch && \
+  mamba clean — all -f -y && \
+  fix-permissions “${CONDA_DIR}” && \
+  fix-permissions “/home/${NB_USER}”

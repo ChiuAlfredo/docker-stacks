@@ -1,9 +1,11 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-# Ubuntu 22.04 (jammy)
-# https://hub.docker.com/_/ubuntu/tags?page=1&name=jammy
-ARG ROOT_CONTAINER=ubuntu:22.04
+# # Ubuntu 22.04 (jammy)
+# # https://hub.docker.com/_/ubuntu/tags?page=1&name=jammy
+# ARG ROOT_CONTAINER=ubuntu:22.04
+
+ARG ROOT_CONTAINER=nvidia/cuda:12.3.1-devel-ubuntu22.04
 
 FROM $ROOT_CONTAINER
 
