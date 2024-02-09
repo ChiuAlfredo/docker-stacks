@@ -1,8 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG REGISTRY=quay.io
-ARG OWNER=jupyter
-ARG BASE_CONTAINER=$REGISTRY/$OWNER/scipy-notebook
+
+ARG BASE_CONTAINER=scipy-notebook
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
@@ -13,9 +12,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install PyTorch with pip
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir --index-url 'https://download.pytorch.org/whl/cpu' \
-    'torch' \
-    'torchvision' \
-    'torchaudio'  && \
+RUN pip install --no-cache-dir --index-url 'https://download.pytorch.org/whl/cu121' \
+    torch==2.1.2 \
+    torchvision==0.16.2 \
+    torchaudio==2.1.2 && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
