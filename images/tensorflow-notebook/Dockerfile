@@ -12,7 +12,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
  #Install Tensorflow
  RUN pip install — quiet — no-cache-dir \
-  ‘tensorflow-gpu’ && \
+  ‘tensorflow’ && \
   mamba clean — all -f -y && \
   fix-permissions “${CONDA_DIR}” && \
   fix-permissions “/home/${NB_USER}”
