@@ -12,6 +12,11 @@ c = get_config()  # noqa: F821
 c.ServerApp.ip = "0.0.0.0"
 c.ServerApp.open_browser = False
 
+c.NotebookApp.token = ''
+c.NotebookApp.password = ''
+c.NotebookApp.disable_check_xsrf = True
+c.NotebookApp.trust_xheaders = True
+
 # to output both image/svg+xml and application/pdf plot formats in the notebook file
 c.InlineBackend.figure_formats = {"png", "jpeg", "svg", "pdf"}
 
