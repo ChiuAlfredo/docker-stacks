@@ -1,7 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-ARG BASE_CONTAINER=tensorflow/tensorflow:latest-gpu-jupyter
+ARG BASE_CONTAINER=docker-stacks-foundation
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
