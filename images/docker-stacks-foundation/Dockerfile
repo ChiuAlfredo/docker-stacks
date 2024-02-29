@@ -5,7 +5,7 @@
 # # https://hub.docker.com/_/ubuntu/tags?page=1&name=jammy
 # ARG ROOT_CONTAINER=ubuntu:22.04
 
-ARG ROOT_CONTAINER=tensorflow/tensorflow:latest-gpu
+ARG ROOT_CONTAINER=tensorflow/tensorflow:latest-gpu-jupyter
 
 FROM $ROOT_CONTAINER
 
